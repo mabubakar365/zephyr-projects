@@ -1,0 +1,28 @@
+/ {
+    aliases {
+        led0 = &my_led0;
+        led1 = &my_led1;
+        button0 = &my_button0;
+    };
+
+    leds {
+        compatible = "gpio-leds";
+        my_led0: led_0 {
+            gpios = <&gpioa 6 GPIO_ACTIVE_HIGH>;
+            label = "User LED (PA6)";
+        };
+        
+        my_led1: led_1 {
+            gpios = <&gpioa 5 GPIO_ACTIVE_HIGH>;
+            label = "User LED (PA7)";
+        };
+    };
+
+    buttons {
+        compatible = "gpio-keys";
+        my_button0: button0 {
+            gpios = <&gpioc 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+            label = "User push button (PC13)";
+        };
+    };
+};
